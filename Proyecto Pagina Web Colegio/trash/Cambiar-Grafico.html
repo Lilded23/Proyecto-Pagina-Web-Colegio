@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Gráfico de Barras</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Chart.js v3.7.0 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0"></script>
+</head>
+
+<body>
+  <canvas id="myChart"></canvas>
+
+  <script>
+    // Datos del gráfico
+    const data = {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+      datasets: [{
+        label: 'Ventas',
+        data: [12, 19, 3, 5, 2],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)', // Color de las barras
+        borderColor: 'rgba(54, 162, 235, 1)', // Color del borde de las barras
+        borderWidth: 1 // Ancho del borde de las barras
+      }]
+    };
+
+    // Opciones de configuración del gráfico
+    const options = {
+      responsive: true, // Hacer el gráfico responsive
+      scales: {
+        y: {
+          beginAtZero: true // Empezar el eje y desde cero
+        }
+      }
+    };
+
+    // Crear el gráfico de barras
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+
+</html>
